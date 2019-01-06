@@ -9,10 +9,11 @@ Add to the manifest in Android:
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 Add to the Info.plist in IOS:
+
     <key>NSCameraUsageDescription</key>
     <string>YOUR_PERMISSION</string>
     <key>NSPhotoLibraryUsageDescription</key>
-     <string>YOUR_PERMISSION</string>
+    <string>YOUR_PERMISSION</string>
 
 ## Getting Started
 
