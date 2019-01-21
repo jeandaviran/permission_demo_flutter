@@ -2,6 +2,19 @@
 
 A new Flutter application.
 
+Add to the manifest in Android:
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+Add to the Info.plist in IOS:
+
+    <key>NSCameraUsageDescription</key>
+    <string>YOUR_PERMISSION</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>YOUR_PERMISSION</string>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
