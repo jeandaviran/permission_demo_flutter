@@ -17,11 +17,36 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Permisos Demo'),
+          title: Text('Permisos Demo')
         ),
         body: Center(
           child: new Column(
             children: <Widget>[
+              Center(child: RaisedButton(
+              onPressed: () {
+        showDialog(
+        context: context,
+        builder: (BuildContext context) {
+        // return object of type AlertDialog
+        return AlertDialog(
+        title: new Text("AlertDialog Class"),
+        content: new Text("Creates an alert dialog.Typically used in conjunction with showDialog."+
+        "The contentPadding must not be null. The titlePadding defaults to null, which implies a default."),
+        actions: <Widget>[
+        // usually buttons at the bottom of the dialog
+        new FlatButton(
+        child: new Text("Close"),
+        onPressed: () {
+        Navigator.of(context).pop();
+        },
+        ),
+        ],
+        );
+        },
+        );
+        },
+          child: Text('Show AlertDialog'),
+      )),
               RaisedButton(onPressed: getPermissionStatus, child: new Text("Estado de todos los permisos")),
               RaisedButton(onPressed: requestPermissions, child: new Text("Respuesta de permiso camara y storage")),
               RaisedButton(onPressed: requestPermission, child: new Text("Respuesta de un permiso")),
@@ -50,9 +75,11 @@ class _MyAppState extends State<MyApp> {
     res.forEach((permission) {
       if(permission.permissionStatus == PermissionStatus.allow){
         _Toast("Tienes todos los permisos",Colors.green);
-      }else{
-        _Toast("No tienes permisos",Colors.red);
+      }else if(permission.permissionStatus == PermissionStatus.noAgain){
+        //_Toast("No tienes permisos",Colors.red);
         Permission.openSettings();
+        //_showDialog();
+        //_showAlert(context, 'Do you like flutter, I do!');
       }
 
     });
@@ -63,8 +90,8 @@ class _MyAppState extends State<MyApp> {
       if(res == PermissionStatus.allow){
         _Toast("Tienes el permiso de almacenamiento",Colors.green);
       }else{
-        _Toast( "No tienes el permiso de almacenamiento",Colors.red);
-        Permission.openSettings();
+       // _Toast( "No tienes el permiso de almacenamiento",Colors.red);
+        //_showAlert(context, 'Do you like flutter, I do!');
       }
   }
 
